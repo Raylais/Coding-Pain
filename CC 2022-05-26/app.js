@@ -14,8 +14,11 @@ Note: for this kata y isn't considered a vowel.
 
 //take in a string and iterate through each charOf(i), check for vowels if a vowel 
 //Okay... found out about string.replace() and somehow about regexp, much easier?! way to run through a string and remove vowels
+
+//take in a string and use replace method with a regexp to remove any vowels found within the str regardless of character case.
 function disemvowel(str) {
     //return str.replace(/a|i|e|o|u/gi, '');
+    //brackets do the same thing an dmake the code shorter...
     return str.replace(/[aeiou]/gi, '');
   }
 
