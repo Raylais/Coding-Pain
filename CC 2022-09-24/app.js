@@ -8,7 +8,7 @@ Every day you rent the car costs $40. If you rent the car for 7 or more days, yo
 Write a code that gives out the total amount for different days(d).
  */
 
-//Track number of days in rental. Track total cost, add 40 for every day, for 3-6 days in rental subtract 20 dollars off total. For 7 days to infinity subtract 50 from total.
+//Track number of days in rental. Track total cost, add 40 for every day, create a range statement for 3-6 days in rental subtract 20 dollars off total. For 7 days to infinity subtract 50 from total.
 //
 
 function rentalCarCost(d) {
@@ -17,9 +17,11 @@ function rentalCarCost(d) {
     for (i = 1; i < d; i++) {
         totalCost += 40;
     }
+    if (d >= 3 && d <= 6) {
+        totalCost -= 20;
+    } else if (d >= 7) {totalCost -= 50;}
 
     return totalCost;
 }
 
-console.log(rentalCarCost(2));
-print(rentalCarCost(2));
+console.log(rentalCarCost(7));
