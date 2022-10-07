@@ -30,6 +30,7 @@ take array and use some method to get the sum of indices in a way described abov
 
 find the difference between the target and the first index number.
 
+*****
 if target is 0 then search arrays for two entries of 0 and that will be our tuple.
 if difference is negative repeat first step with next index
 
@@ -37,6 +38,8 @@ if difference is positive, search array for number
 if not found then return to step 1 and repeat
 if found then this is the tuple. 
 
+**Did not need to do this, re-reading after taking a break, the problem states that the target will always have two numbers in the array whose sum equals target.
+*****
 
  */
 
@@ -44,21 +47,17 @@ if found then this is the tuple.
     let difference = target - numbers[0];
     tuple = [];
     let index = 0;
-    //kinda sorta working so far, need to find a way to get the 2nd index. indexOf method only gets the first... maybe I can use indexLast to go in reverse to get the second? this works! looks looks like a lot of operations... cannot think of a different solution currently. Check for 0 + 0 = 0 completed...(do I even need this check?). 
-    
-    //**Next to work on negative check then the main check**
 
     //for (i = 0; i < numbers.length; i++) {
-        if(target == 0) {
-            index = numbers.indexOf(0);
-            tuple.push(index);
-            index = numbers.lastIndexOf(0);
-            tuple.push(index);
+            tuple.push(numbers[0])
+            tuple.push(numbers.lastIndexOf(difference))
             return tuple;
-        } return "no tuples"
 
-    //    }
-    //}
-  }
+ //}
+}
 
-  console.log(twoSum([5, 4, 0, 1, 0], 0))
+  console.log(twoSum([9, 4, 0, 1, 4], 9))
+  console.log(twoSum([3, 6, 3, 1, 4], 6))
+  //target - diff = 3 
+  // push (numbers.indexOf(different(3)))
+  console.log(twoSum([5, 4, 0, 3, 4], 8))
