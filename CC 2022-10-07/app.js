@@ -21,8 +21,6 @@ What if we take each index say 0 then get the sum of each index in the array and
 example: 0 + 1, 0 + 2, 0 + 3 THEN 1 + 2, 1 + 3 THEN 2 + 3 THEN 3 + has already been evaulated against all indices. 
 For each sum we compare to the target to see if we have a match, if we do return those indices for the first match.
 
-*another idea, what if we take the target and get the difference and do an array search for that number. if we find that number that pair is our tuple. if the number is not found, it is not, if the number is negative it is not. 
-
 seems good, now how to code this?
 
 Numbers should come as an array input, target a single value
@@ -43,21 +41,35 @@ if found then this is the tuple.
 
  */
 
- function twoSum(numbers, target) {
+/*  function twoSum(numbers, target) {
     let difference = target - numbers[0];
     tuple = [];
     let index = 0;
 
-    //for (i = 0; i < numbers.length; i++) {
-            tuple.push(numbers[0])
-            tuple.push(numbers.lastIndexOf(difference))
-            return tuple;
+    for (i = 1; i < numbers.length; i++) {
+      if ((difference + numbers[i]) == target){
+        tuple.push(numbers.indexOf(i))
+        tuple.push(numbers.indexOf(difference))
+        return tuple;
+      } else if((difference + numbers[i]) != target)
+      {
+        i++;
+      }
+    }
+} */
 
- //}
+function twoSum(numbers, target) {
+  for (var i = 0; i < numbers.length-1; i++) {
+      for (var j = i+1; j < numbers.length; j++) {
+          if (numbers[i] + numbers[j] === target) return [i, j];
+      }
+  }
 }
 
-  console.log(twoSum([9, 4, 0, 1, 4], 9))
+  //console.log(twoSum([9, 4, 0, 1, 4], 9))
   console.log(twoSum([3, 6, 3, 1, 4], 6))
   //target - diff = 3 
   // push (numbers.indexOf(different(3)))
   console.log(twoSum([5, 4, 0, 3, 4], 8))
+  console.log(twoSum([1234,5678,9012], 14690))
+  console.log(twoSum([3, 5, 3, 6, 5], 10))
